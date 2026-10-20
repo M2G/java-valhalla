@@ -6,7 +6,6 @@ Même logique dans tous les langages : celle de `StaxLegacyParser` (DOM + expres
 data/sample-camt053.xml   le fichier d'entrée
 data/expected-dump.txt    contenu extrait par le Java legacy (référence)
 java/                     ton projet Java complet (legacy + Valhalla + JMH), pom.xml
-rust/                     cargo (édition 2024)
 cpp/                      make + pugixml 1.16 (MIT, inclus dans third_party/)
 ```
 
@@ -27,10 +26,9 @@ $JAVA_HOME/bin/java --enable-preview -jar target/benchmarks.jar -jvmArgs --enabl
 
 `<java.release>` dans le profil `valhalla` doit correspondre au numéro du build (27 pour `27-jep401ea3`). Avec ce JDK, tout le projet (legacy et Valhalla) compile et le benchmark JMH compare les deux méthodes, `parseLegacy` et `parseWithValhalla`.
 
-## Rust et C++
+## C++
 
 ```
-cd rust && cargo run --release -- bench ../data/sample-camt053.xml
 cd cpp  && make && ./camt_bench bench ../data/sample-camt053.xml
 ```
 
@@ -45,7 +43,6 @@ bench <fichier> <fenêtres_warmup> <secondes_warmup> <fenêtres_mesure> <seconde
 ```
 java -cp target/classes org.example.DumpLegacy   ../data/sample-camt053.xml | diff - ../data/expected-dump.txt
 java --enable-preview -cp target/classes org.example.DumpValhalla ../data/sample-camt053.xml | diff - ../data/expected-dump.txt
-./rust/target/release/camt_bench dump data/sample-camt053.xml | diff - data/expected-dump.txt
 ./cpp/camt_bench dump data/sample-camt053.xml | diff - data/expected-dump.txt
 ```
 
