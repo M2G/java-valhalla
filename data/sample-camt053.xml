@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02 camt.053.001.02.xsd">
+    <BkToCstmrStmt>
+        <GrpHdr>
+            <MsgId>MSG123456789</MsgId>
+            <CreDtTm>2026-01-01T10:30:00Z</CreDtTm>
+        </GrpHdr>
+        <Stmt>
+            <Id>STM20260115001</Id>
+            <CreDtTm>2026-01-01T10:30:00Z</CreDtTm>
+            <Acct>
+                <Id>
+                    <IBAN>GB29NWBK60161331926819</IBAN>
+                </Id>
+                <Tp>
+                    <Cd>CACC</Cd>
+                </Tp>
+                <Ccy>USD</Ccy>
+            </Acct>
+            <Bal>
+                <Tp>
+                    <CdOrPrtry>
+                        <Cd>OPAV</Cd>
+                    </CdOrPrtry>
+                </Tp>
+                <Amt Ccy="USD">50000.00</Amt>
+                <CdtDbtInd>CRDT</CdtDbtInd>
+                <Dt>
+                    <Dt>2026-01-01</Dt>
+                </Dt>
+            </Bal>
+
+            <!-- Entry 1: Credit transaction -->
+            <Ntry>
+                <Amt Ccy="USD">1000.50</Amt>
+                <CdtDbtInd>CRDT</CdtDbtInd>
+                <Sts>BOOK</Sts>
+                <BookgDt>
+                    <Dt>2026-01-01</Dt>
+                </BookgDt>
+                <ValDt>
+                    <Dt>2026-01-01</Dt>
+                </ValDt>
+                <BkTxCd>
+                    <Domn>
+                        <Cd>PMNT</Cd>
+                        <Fmly>
+                            <Cd>RCDT</Cd>
+                            <SubFmlyCd>ESCT</SubFmlyCd>
+                        </Fmly>
+                    </Domn>
+                </BkTxCd>
+                <NtryDtls>
+                    <TxDtls>
+                        <Refs>
+                            <EndToEndId>END2END123456</EndToEndId>
+                        </Refs>
+                        <AmtDtls>
+                            <TxAmt>
+                                <Amt Ccy="USD">1000.50</Amt>
+                            </TxAmt>
+                        </AmtDtls>
+                        <RltdPties>
+                            <Dbtr>
+                                <Nm>Company ABC Inc.</Nm>
+                            </Dbtr>
+                            <DbtrAcct>
+                                <Id>
+                                    <IBAN>DE89370400440532013000</IBAN>
+                                </Id>
+                            </DbtrAcct>
+                            <CdtrAcct>
+                                <Id>
+                                    <IBAN>GB29NWBK60161331926819</IBAN>
+                                </Id>
+                            </CdtrAcct>
+                        </RltdPties>
+                        <RmtInf>
+                            <Ustrd>Invoice 12345 - January services</Ustrd>
+                        </RmtInf>
+                    </TxDtls>
+                </NtryDtls>
+            </Ntry>
+
+            <!-- Entry 2: Debit transaction -->
+            <Ntry>
+                <Amt Ccy="EUR">2500.75</Amt>
+                <CdtDbtInd>DBIT</CdtDbtInd>
+                <Sts>BOOK</Sts>
+                <BookgDt>
+                    <Dt>2026-01-01</Dt>
+                </BookgDt>
+                <ValDt>
+                    <Dt>2026-01-01</Dt>
+                </ValDt>
+                <BkTxCd>
+                    <Domn>
+                        <Cd>PMNT</Cd>
+                        <Fmly>
+                            <Cd>RCDT</Cd>
+                            <SubFmlyCd>ESDD</SubFmlyCd>
+                        </Fmly>
+                    </Domn>
+                </BkTxCd>
+                <NtryDtls>
+                    <TxDtls>
+                        <Refs>
+                            <EndToEndId>END2END789012</EndToEndId>
+                        </Refs>
+                        <AmtDtls>
+                            <TxAmt>
+                                <Amt Ccy="EUR">2500.75</Amt>
+                            </TxAmt>
+                        </AmtDtls>
+                        <RltdPties>
+                            <Cdtr>
+                                <Nm>Supplier XYZ GmbH</Nm>
+                            </Cdtr>
+                            <CdtrAcct>
+                                <Id>
+                                    <IBAN>DE12500105170648489890</IBAN>
+                                </Id>
+                            </CdtrAcct>
+                        </RltdPties>
+                        <RmtInf>
+                            <Ustrd>Payment for goods delivered</Ustrd>
+                        </RmtInf>
+                    </TxDtls>
+                </NtryDtls>
+            </Ntry>
+        </Stmt>
+    </BkToCstmrStmt>
+</Document>

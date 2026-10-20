@@ -1,0 +1,5 @@
+entries=2
+[0] amt=1000.50 USD cd=CRDT sts=BOOK date=2026-01-01 txdtls=1
+[0.0] e2e=END2END123456 txamt=1000.50 USD dbtr=Company ABC Inc. dbtrIban=DE89370400440532013000 cdtr=null cdtrIban=GB29NWBK60161331926819 rmt=Invoice 12345 - January services
+[1] amt=2500.75 EUR cd=DBIT sts=BOOK date=2026-01-01 txdtls=1
+[1.0] e2e=END2END789012 txamt=2500.75 EUR dbtr=null dbtrIban=null cdtr=Supplier XYZ GmbH cdtrIban=DE12500105170648489890 rmt=Payment for goods delivered
